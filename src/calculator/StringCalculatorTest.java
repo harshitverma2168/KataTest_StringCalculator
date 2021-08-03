@@ -29,4 +29,9 @@ public class StringCalculatorTest {
     public void shouldAcceptNewLineAsValidDelimiter(){
         assertEquals(11, StringCalculator.Add("1\n3\n4,3"));
     }
+
+    @Test
+    public void shouldAcceptCustomDelimiter(){
+        assertEquals(4, StringCalculator.Add("//;\n1;3"));
+    }
 }
