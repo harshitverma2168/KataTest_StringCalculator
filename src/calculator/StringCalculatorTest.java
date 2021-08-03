@@ -24,4 +24,9 @@ public class StringCalculatorTest {
     public void shouldReturnSumForMultipleNumbersSeparatedByComma(){
         assertEquals(8, StringCalculator.Add("1,2,4,1"));
     }
+
+    @Test
+    public void shouldAcceptNewLineAsValidDelimiter(){
+        assertEquals(11, StringCalculator.Add("1\n3\n4,3"));
+    }
 }

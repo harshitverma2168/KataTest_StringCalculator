@@ -4,8 +4,8 @@ public class StringCalculator {
     public static int Add(String numbers) {
         if (numbers.isEmpty()) {
             return 0;
-        } else if (numbers.indexOf(",") > -1) {
-            String[] nums = numbers.split(",");
+        } else if (numbers.indexOf(",") > -1 || numbers.indexOf("\n") > -1) {
+            String[] nums = numbers.split(",|\n");
             int sum = 0;
             for (String num : nums) {
                 sum += Integer.parseInt(num);
