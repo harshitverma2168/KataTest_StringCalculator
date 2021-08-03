@@ -5,7 +5,10 @@ import java.util.ArrayList;
 import static java.lang.String.join;
 
 public class StringCalculator {
+    public static int count = 0;
+
     public static int Add(String numbers) {
+        ++count;
         if (numbers.isEmpty()) {
             return 0;
         } else {
@@ -13,20 +16,20 @@ public class StringCalculator {
             ArrayList<Integer> negatives = new ArrayList<>();
 
             for (String num : nums) {
-                int el  = Integer.parseInt(num);
-                if (el < 0){
+                int el = Integer.parseInt(num);
+                if (el < 0) {
                     negatives.add(el);
                 }
             }
-            if(negatives.size() == 1){
+            if (negatives.size() == 1) {
                 throw new RuntimeException("Negatives are not allowed");
-            } else if(negatives.size() > 1){
+            } else if (negatives.size() > 1) {
                 throw new RuntimeException("Negatives are not allowed: " + negatives);
             }
 
             int sum = 0;
             for (String num : nums) {
-                int x =  Integer.parseInt(num);
+                int x = Integer.parseInt(num);
                 sum += x;
             }
             return sum;
@@ -43,4 +46,10 @@ public class StringCalculator {
         String[] nums = numberString.split(delimiter);
         return nums;
     }
+
+
+    public int GetCalledCount() {
+    return count;
+    }
+
 }

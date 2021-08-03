@@ -53,4 +53,10 @@ public class StringCalculatorTest {
         }
     }
 
+    @Test
+    public void shouldCountNoOfTimesAddInvoked() {
+        StringCalculator sc = new StringCalculator();
+        assertEquals(1,sc.GetCalledCount());
+    }
+
 }
