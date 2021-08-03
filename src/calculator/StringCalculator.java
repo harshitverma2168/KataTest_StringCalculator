@@ -30,6 +30,9 @@ public class StringCalculator {
             int sum = 0;
             for (String num : nums) {
                 int x = Integer.parseInt(num);
+                if (x > 1000) {
+                    continue;
+                }
                 sum += x;
             }
             return sum;
@@ -49,7 +52,7 @@ public class StringCalculator {
 
 
     public int GetCalledCount() {
-    return count;
+        return count;
     }
 
 }

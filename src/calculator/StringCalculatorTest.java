@@ -56,7 +56,13 @@ public class StringCalculatorTest {
     @Test
     public void shouldCountNoOfTimesAddInvoked() {
         StringCalculator sc = new StringCalculator();
-        assertEquals(1,sc.GetCalledCount());
+        assertEquals(1, sc.GetCalledCount());
+    }
+
+
+    @Test
+    public void shouldIgnoreNumberGreaterThan1000() {
+        assertEquals(1000, StringCalculator.Add("1001,1000"));
     }
 
 }
