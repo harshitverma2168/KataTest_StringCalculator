@@ -1,6 +1,8 @@
 package calculator;
 
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+
+import static java.lang.String.join;
 
 public class StringCalculator {
     public static int Add(String numbers) {
@@ -8,13 +10,23 @@ public class StringCalculator {
             return 0;
         } else {
             String[] nums = splitNumbers(numbers);
-            int sum = 0;
+            ArrayList<Integer> negatives = new ArrayList<>();
 
             for (String num : nums) {
-                int x =  Integer.parseInt(num);
-                if(x < 0){
-                    throw new RuntimeException("Negatives are not allowed");
+                int el  = Integer.parseInt(num);
+                if (el < 0){
+                    negatives.add(el);
                 }
+            }
+            if(negatives.size() == 1){
+                throw new RuntimeException("Negatives are not allowed");
+            } else if(negatives.size() > 1){
+                throw new RuntimeException("Negatives are not allowed: " + negatives);
+            }
+
+            int sum = 0;
+            for (String num : nums) {
+                int x =  Integer.parseInt(num);
                 sum += x;
             }
             return sum;
