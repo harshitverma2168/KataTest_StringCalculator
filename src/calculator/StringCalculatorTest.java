@@ -19,4 +19,9 @@ public class StringCalculatorTest {
     public void shouldReturnSumForTwoNumbersSeparatedByComma(){
         assertEquals(3, StringCalculator.Add("1,2"));
     }
+
+    @Test
+    public void shouldReturnSumForMultipleNumbersSeparatedByComma(){
+        assertEquals(8, StringCalculator.Add("1,2,4,1"));
+    }
 }
