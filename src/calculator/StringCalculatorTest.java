@@ -34,4 +34,9 @@ public class StringCalculatorTest {
     public void shouldAcceptCustomDelimiter(){
         assertEquals(4, StringCalculator.Add("//;\n1;3"));
     }
+
+    @Test
+    public void shouldThrowExceptionForNegativeValues(){
+        StringCalculator.Add("-2,3,4");
+    }
 }

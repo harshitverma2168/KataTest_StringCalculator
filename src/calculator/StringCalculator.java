@@ -11,7 +11,11 @@ public class StringCalculator {
             int sum = 0;
 
             for (String num : nums) {
-                sum += Integer.parseInt(num);
+                int x =  Integer.parseInt(num);
+                if(x < 0){
+                    throw new RuntimeException("Negatives are not allowed");
+                }
+                sum += x;
             }
             return sum;
         }
