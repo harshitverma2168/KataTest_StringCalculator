@@ -76,4 +76,9 @@ public class StringCalculatorTest {
         assertEquals(8, StringCalculator.Add("//[;][@]\n1;3@4"));
     }
 
+    @Test
+    public void shouldAcceptCustomMulipleDelimitersWithCustomLength() {
+        assertEquals(18, StringCalculator.Add("//[;;;][@@][####][&]\n1;;;3@@4&1####9"));
+    }
+
 }
