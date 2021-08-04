@@ -56,7 +56,7 @@ public class StringCalculatorTest {
     @Test
     public void shouldCountNoOfTimesAddInvoked() {
         StringCalculator sc = new StringCalculator();
-        assertEquals(1, sc.GetCalledCount());
+        assertEquals(2, sc.GetCalledCount());
     }
 
 
@@ -65,4 +65,9 @@ public class StringCalculatorTest {
         assertEquals(1000, StringCalculator.Add("1001,1000"));
     }
 
+
+    @Test
+    public void shouldAcceptCustomDelimiterOfAnyLength() {
+        assertEquals(4, StringCalculator.Add("//;;;\n1;;;3"));
+    }
 }
