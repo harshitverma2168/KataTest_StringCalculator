@@ -68,6 +68,6 @@ public class StringCalculatorTest {
 
     @Test
     public void shouldAcceptCustomDelimiterOfAnyLength() {
-        assertEquals(4, StringCalculator.Add("//;;;\n1;;;3"));
+        assertEquals(4, StringCalculator.Add("//[;;;]\n1;;;3"));
     }
 }

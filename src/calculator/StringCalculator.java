@@ -43,8 +43,12 @@ public class StringCalculator {
         String numberString = numbers;
         String delimiter = ",|\n";
         if (numberString.startsWith("//")) {
-            delimiter = numberString.substring(2, numberString.indexOf("\n"));
-            numberString = numberString.substring(numberString.indexOf("\n") + 1);
+            if(numberString.charAt(2) == '[' && numberString.charAt(numberString.indexOf("\n") - 1) == ']' ){
+                delimiter = numberString.substring(3, numberString.indexOf("]"));
+            } else {
+                delimiter = numberString.substring(2, numberString.indexOf("\n"));
+            }
+                numberString = numberString.substring(numberString.indexOf("\n") + 1);
         }
         String[] nums = numberString.split(delimiter);
         return nums;
