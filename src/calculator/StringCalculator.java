@@ -44,16 +44,37 @@ public class StringCalculator {
         String delimiter = ",|\n";
         if (numberString.startsWith("//")) {
             if(numberString.charAt(2) == '[' && numberString.charAt(numberString.indexOf("\n") - 1) == ']' ){
-                delimiter = numberString.substring(3, numberString.indexOf("]"));
+                delimiter = getDelimiterFromString(numberString.substring(2, numberString.indexOf("\n")));
             } else {
                 delimiter = numberString.substring(2, numberString.indexOf("\n"));
             }
+            System.out.print(delimiter);
                 numberString = numberString.substring(numberString.indexOf("\n") + 1);
         }
         String[] nums = numberString.split(delimiter);
         return nums;
     }
 
+    private static String getDelimiterFromString(String part) {
+        String delimiter = "";
+        int bracketCount = 0;
+        int index = 0;
+        for (Character ch : part.toCharArray()) {
+            index++;
+            if (ch == '[') {
+                bracketCount++;
+            } else if (ch == ']') {
+                bracketCount--;
+            } else {
+                delimiter += ch;
+            }
+            if (bracketCount == 0 &&  index!=part.length()) {
+                delimiter += "|";
+            }
+
+        }
+        return delimiter;
+    }
 
     public int GetCalledCount() {
         return count;

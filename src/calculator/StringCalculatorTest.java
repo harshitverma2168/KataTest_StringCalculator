@@ -70,4 +70,10 @@ public class StringCalculatorTest {
     public void shouldAcceptCustomDelimiterOfAnyLength() {
         assertEquals(4, StringCalculator.Add("//[;;;]\n1;;;3"));
     }
+
+    @Test
+    public void shouldAcceptCustomMulipleDelimiters() {
+        assertEquals(8, StringCalculator.Add("//[;][@]\n1;3@4"));
+    }
+
 }
